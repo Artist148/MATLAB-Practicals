@@ -1,0 +1,61 @@
+clc;
+clear;
+close all;
+
+% Define the input sequences and their indices
+
+x  = [3 4 6 8];        % Input signal x[n]
+nx = [-1 0 1 2];       % Index of x[n]
+
+h  = [3 5 7];          % Impulse response h[n]
+nh = [0 1 2];          % Index of h[n]
+
+% Perform convolution
+
+y = conv(x, h);        % Linear convolution
+
+% Generate index for output signal
+
+ny = (nx(1) + nh(1)) : (nx(end) + nh(end));
+
+% Display results
+
+disp('Input signal x[n] = ');
+disp(x);
+
+disp('Impulse response h[n] = ');
+disp(h);
+
+disp('Convolution output y[n] = ');
+disp(y);
+
+disp('Output index ny = ');
+disp(ny);
+
+%  Plot all signals
+
+figure;
+
+% Plot x[n]
+subplot(3,1,1);
+stem(nx, x, 'filled');
+xlabel('n');
+ylabel('x[n]');
+title('Input Signal x[n]');
+grid on;
+
+% Plot h[n]
+subplot(3,1,2);
+stem(nh, h, 'filled');
+xlabel('n');
+ylabel('h[n]');
+title('Impulse Response h[n]');
+grid on;
+
+% Plot y[n]
+subplot(3,1,3);
+stem(ny, y, 'filled');
+xlabel('n');
+ylabel('y[n]');
+title('Output Signal y[n] = x[n] * h[n]');
+grid on;
