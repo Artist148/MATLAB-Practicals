@@ -1,0 +1,24 @@
+clc;
+clear all;
+close all;
+syms t s
+% 1. Define the CT signal
+x = exp(2*t) * sin(3*t) * heaviside(t);
+% 2. Plot the signal over a finite interval
+fplot(x, [-2 10])
+title('x(t) = e^{2t} sin(3t) u(t)')
+xlabel('t')
+ylabel('x(t)')
+grid on
+% 3. Compute Laplace Transform
+y = laplace(x, t, s);
+% 4. Display and pretty-print the Laplace Transform
+disp('Laplace Transform Y(s):')
+disp(y)
+pretty(y)
+% 5. Compute Inverse Laplace Transform
+x1 = ilaplace(y, s, t);
+% 6. Display and pretty-print the inverse
+disp('Inverse Laplace Transform x(t):')
+disp(x1)
+pretty(x1)
