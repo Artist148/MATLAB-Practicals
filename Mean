@@ -1,0 +1,25 @@
+clc;
+clear all;
+close all;
+x = rand(1,4); % 1x4 random numbers
+disp('random variable X:')
+disp(x)
+% Mean using built in MATLAB function
+x_m_fun = mean(x);
+disp('mean using mean():')
+disp(x_m_fun)
+% Using formula manually
+x_m_calc = sum(sum(x)) / length(x);
+disp('mean using formula:')
+disp(x_m_calc)
+% Using built in MATLAB function
+x_var_fun = var(x,1); %-----Normalization factor for calculating variance is 
+N(population of data points)
+disp('variance using var():')
+disp(x_var_fun)
+% Using formula manually: Var(X) = mean(X^2) - (mean(X))^2
+temp1 = mean(x .* x); % mean of squares
+temp2 = (mean(x))^2; % square of mean
+x_var_calc = temp1 - temp2;
+disp('variance using formula:')
+disp(x_var_calc)
