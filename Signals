@@ -1,0 +1,66 @@
+ clc;
+ clear all;
+ close all
+
+A = 5;
+t= 0:0.001:1;
+f = 5;
+
+disp('1. Sine wave')
+
+disp('2. Square wave')
+
+disp('3. Sawtooth wave')
+
+disp('4. Triangular wave')
+
+
+
+ ch = input('Enter your choice: ');
+
+
+ if ch == 1
+
+ y = A*sin(2*pi*f*t);
+
+plot(t, y)
+
+ title('Sine Wave')
+ 
+elseif ch == 2
+
+y = A*square(2*pi*f*t); 
+
+plot(t, y) 
+
+title('Square Wave') 
+
+elseif ch == 3
+
+ y = A*sawtooth(2*pi*f*t);
+
+ plot(t, y)
+
+ title('Sawtooth Wave')
+
+elseif ch == 4
+
+ y = A*sawtooth (2*pi*f*t, 0.5);
+
+ plot(t, y)
+
+title('Triangular Wave')
+
+else
+
+disp('Invalid choice')
+
+ end
+
+
+
+ xlabel('Time');
+
+ylabel('Amplitude');
+
+grid on;
