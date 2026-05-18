@@ -1,0 +1,75 @@
+clc;
+clear;
+close all;
+
+% Common Parameters
+A = 5;              % Amplitude
+f = 5;              % Frequency
+t = 0:0.001:1;      % Continuous time
+n = -10:10;         % Discrete time
+
+figure;
+
+% 1. Sine Wave
+subplot(4,2,1);
+x1 = A * sin(2*pi*f*t);
+plot(t, x1);
+title('Sine Wave');
+xlabel('Time');
+ylabel('Amplitude');
+grid on;
+
+% 2. Square Wave
+subplot(4,2,2);
+x2 = A * square(2*pi*f*t);
+plot(t, x2);
+title('Square Wave');
+xlabel('Time');
+ylabel('Amplitude');
+grid on;
+
+% 3. Triangular Wave
+subplot(4,2,3);
+x3 = A * sawtooth(2*pi*f*t, 0.5);   % 0.5 gives triangular wave
+plot(t, x3);
+title('Triangular Wave');
+xlabel('Time');
+ylabel('Amplitude');
+grid on;
+
+% 4. Sawtooth Wave
+subplot(4,2,4);
+x4 = A * sawtooth(2*pi*f*t);
+plot(t, x4);
+title('Sawtooth Wave');
+xlabel('Time');
+ylabel('Amplitude');
+grid on;
+
+% 5. Unit Step Signal (Discrete)
+subplot(4,2,5);
+u = (n >= 0);
+stem(n, u, 'filled');
+title('Unit Step Signal');
+xlabel('n');
+ylabel('u[n]');
+grid on;
+
+% 6. Unit Impulse Signal (Discrete)
+subplot(4,2,6);
+delta = (n == 0);
+stem(n, delta, 'filled');
+title('Unit Impulse Signal');
+xlabel('n');
+ylabel('\delta[n]');
+grid on;
+
+% 7. Exponential Signal (Continuous)
+subplot(4,2,7);
+a = 3;                       % Exponential rate
+x_exp = A * exp(a*t);
+plot(t, x_exp);
+title('Exponential Signal');
+xlabel('Time');
+ylabel('Amplitude');
+grid on;
