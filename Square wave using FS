@@ -1,0 +1,25 @@
+clc;
+clear;
+close all;
+
+% Time axis
+t = -2*pi:0.001:2*pi;
+
+% Number of Fourier series terms
+N = 15;
+
+% Initialize signal
+x = zeros(size(t));
+
+% Fourier Series for Square Wave
+for n = 1:2:N
+    x = x + (4/pi)*(1/n)*sin(n*t);
+end
+
+% Plot
+plot(t, x, 'LineWidth', 2);
+grid on;
+xlabel('Time');
+ylabel('Amplitude');
+title('Square Wave using Fourier Series');
+axis([-2*pi 2*pi -1.5 1.5]);
