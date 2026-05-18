@@ -1,0 +1,51 @@
+% MATLAB Code to find CTFT of a signal using symbolic math toolbox
+
+clc;
+
+clear all;
+
+close all;
+
+syms tw;
+
+% Define the signal: decaying exponential multiplied by unit step
+
+x = exp(-2*t) * heaviside(t);
+
+% Define the Fourier Transform
+
+X = fourier(x, t, w);
+
+% Display the result
+
+disp('Continuous-Time Fourier Transform of e^(-2t) u(t): ');
+
+disp(X)
+
+% Magnitude plot
+
+figure;
+
+fplot(abs(X))
+
+grid on
+
+title('magnitude plot')
+
+xlabel('frequency')
+
+ylabel('magnitude')
+
+% Phase plot
+
+figure;
+
+fplot(angle(X))
+
+grid on
+
+title('phase plot')
+
+xlabel('frequency)
+
+ylabel('phase')
