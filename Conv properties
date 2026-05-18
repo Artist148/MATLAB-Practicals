@@ -1,0 +1,32 @@
+clc;
+clear;
+close all;
+
+% Define signals
+x  = [3 4 6 8];
+h1 = [3 5 7];
+h2 = [1 2 3];
+
+%% (1) Distributive Property
+
+LHS1 = conv(x, h1 + h2);
+RHS1 = conv(x, h1) + conv(x, h2);
+
+disp('Distributive Property Error = ');
+disp(norm(LHS1 - RHS1));
+
+%% (2) Associative Property
+
+LHS2 = conv(x, conv(h1, h2));
+RHS2 = conv(conv(x, h1), h2);
+
+disp('Associative Property Error = ');
+disp(norm(LHS2 - RHS2));
+
+%% (3) Commutative Property
+
+LHS3 = conv(x, h1);
+RHS3 = conv(h1, x);
+
+disp('Commutative Property Error = ');
+disp(norm(LHS3 - RHS3));
