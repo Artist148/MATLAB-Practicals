@@ -1,0 +1,51 @@
+clc;
+clear;
+
+%% Linearity
+x1=[1 2 3];
+x2=[2 1 0];
+
+LHS=2*(x1+x2);
+RHS=2*x1+2*x2;
+
+disp('Linearity');
+
+if isequal(LHS,RHS)
+    disp('Linear System');
+else
+    disp('Non Linear System');
+end
+
+
+%% Time Invariance
+x=[1 2 3];
+
+y=x+1;
+
+x_shift=[0 x(1:end-1)];
+
+y1=x_shift+1;
+
+y_shift=[0 y(1:end-1)];
+
+disp('Time Invariance');
+
+if isequal(y1,y_shift)
+    disp('Time Invariant');
+else
+    disp('Time Variant');
+end
+
+
+%% Stability
+x=[1 2 3];
+
+y=0.5*x;
+
+disp('Stability');
+
+if max(abs(y))<Inf
+    disp('Stable System');
+else
+    disp('Unstable System');
+end
